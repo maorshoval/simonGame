@@ -30,6 +30,20 @@ function nextSequence() {
     playSound(randomChosenColour);
 }
 
+function startGame() {
+    if (!started) {
+      $("#level-title").text("Level " + level);
+      nextSequence();
+      started = true;
+    }
+  }
+
+$(document).keydown(startGame);
+
+// Start the game on clicking the title
+$("#level-title").click(startGame);
+
+
 // Event listener for keydown to start the game
 $(document).keydown(function() {
     if (!started) {
